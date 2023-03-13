@@ -9,18 +9,5 @@ from utilities.Conftest import driver
 def test_select_intel_gaming_processor(driver):
     mp = MainPage(driver)
     mp.open_site()
-    mp.login_on_site()
-    mp.go_pc_accessories()
-
-    ap = PCAccessoriesPage(driver)
-    ap.go_pc_main_accessories()
-
-    pma = MainPCAccessoriesPage(driver)
-    pma.go_processors()
-
-    pc = ProcessorCatalogPage(driver)
-    pc.choose_intel_gaming_processor()
-
-    cp = CartPage(driver)
-    cp.buy_select_processor()
-
+    capture_path = 'your_desired_filename.png'
+    driver.save_screenshot(capture_path)

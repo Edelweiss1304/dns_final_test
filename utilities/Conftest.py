@@ -7,6 +7,7 @@ from selenium.webdriver import DesiredCapabilities
 def driver():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
+    options.add_argument("--headless")
     caps = DesiredCapabilities().CHROME
     caps["pageLoadStrategy"] = "eager"
     driver = webdriver.Chrome(desired_capabilities=caps, options=options)

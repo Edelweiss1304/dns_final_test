@@ -48,6 +48,8 @@ class MainPage(Base):
     """Текст на странице комплектующие для пк"""
     successful_transition = "//h1[contains(text(),'Комплектующие для ПК')]"
 
+    logo = "//a[@class='header-mobile__logo']"
+
     # Getters:
 
     def get_pc_accessories(self):
@@ -80,6 +82,9 @@ class MainPage(Base):
 
     def get_login_menu_logged(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_menu_logged)))
+
+    def get_logo(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.logo)))
 
     # Actions:
 
@@ -122,7 +127,7 @@ class MainPage(Base):
 
     def open_site(self):
         self.driver.get(self.url)
-        self.driver.maximize_window()
+        self.get_logo().click()
 
     def login_on_site(self):
         self.open_login_menu()
